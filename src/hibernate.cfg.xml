@@ -17,17 +17,19 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hibernate.current_session_context_class">thread</property>
-        
+        <!--  
         <mapping class="model.Account"/>
         <mapping class="model.Picture"/>
+        <mapping class="model.Members"/>
+        -->
+        <mapping class="model.user.UserBean"/>
+        <mapping class="model.profile.ProfileBean"/>
+        <mapping class="model.wallet.WalletBean"/>
+        <mapping class="model.setting.SettingBean"/>
+        <mapping class="model.product.ProductBean"/>
+        <mapping class="model.order.OrderBean"/>
+        <mapping class="model.orderDetails.OrderDetailsBean"/>
         
-        <mapping class="model.UserBean"/>
-        <mapping class="model.ProfileBean"/>
-        <mapping class="model.WalletBean"/>
-        <mapping class="model.SettingBean"/>
-        <mapping class="model.ProductBean"/>
-        <mapping class="model.OrderBean"/>
-        <mapping class="model.OrderDetailsBean"/>
         
     </session-factory>
 </hibernate-configuration>

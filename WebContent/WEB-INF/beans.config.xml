@@ -9,35 +9,23 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-	<!-- <bean id="sqlserverDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
-		/> <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=LeonPower" 
-		/> <property name="username" value="watcher" /> <property name="password" 
-		value="P@ssw0rd" /> </bean> -->
+<!-- 	 <bean id="sqlserverDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  -->
+<!-- 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"  -->
+<!-- 		/> <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=LeonPower"  -->
+<!-- 		/> <property name="username" value="watcher" /> <property name="password"  -->
+<!-- 		value="P@ssw0rd" /> </bean> -->
 
 	<bean id="sqlserverJndiDataSource"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName"
 			value="java:comp/env/connectSQLServerJdbc/OrderService"></property>
 	</bean>
-
-
-	<!--說明應用程式會使用到annotation組態 -->
-	<context:annotation-config />
-	<!--使用annotation組態的類別放在model套件內 -->
-	<context:component-scan base-package="model" />
-	
-	
-	<mvc:annotation-driven></mvc:annotation-driven>
-	<!-- redirects user to form.jsp when they land on other pages right away, eg. typing "localhost:8080//SpringMvcWebProject/" -->
-	<mvc:view-controller path="/" view-name="redirect:form.jsp"/>
-	
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -46,12 +34,27 @@
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean>
-
+	
 	<!-- registers our custom HibernateTransactionManager class 'transactionManager' with Annotation -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- kinda like; public transactionManager implements HibernateTransactionManager -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<!--說明應用程式會使用到annotation組態 -->
+	<context:annotation-config />
+	<!--使用annotation組態的類別放在model套件內 -->
+	<context:component-scan base-package="model" />
+	<context:component-scan base-package="model.user" />
+	<context:component-scan base-package="model.order" />
+<!-- 	<context:component-scan base-package="model.orderDetails" /> -->
+	<context:component-scan base-package="model.product" />
+	<context:component-scan base-package="model.profile" />
+	<context:component-scan base-package="model.setting" />
+	<context:component-scan base-package="model.wallet" />
+	<!-- redirects user to form.jsp when they land on other pages right away, eg. typing "localhost:8080//SpringMvcWebProject/" -->
+	<!-- CHANGE TO CONTROLLER ADDRESS!! TO STRAT INSIDE WEB-INF/ "Login.Controller" -->
+	<mvc:view-controller path="/" view-name="controller.HomepageController"/>
 
 </beans>

@@ -1,0 +1,118 @@
+use EEIT111FinalProjectDB
+go
+
+INSERT INTO UsersTable(userEmail,userPwd,admin)
+VALUES ('kueifengtung@gmail.com', 'Testing123!', 1),
+	   ('leon123@yahoo.com.tw', '!1Password', 0), 
+	   ('zachomg@hotmail.com', 'Qq1!qwer', 0)
+go
+
+INSERT INTO ProfilesTable(userID,profileFullName,profileJoinDate,profileBirthdate,profileSex,profilePhone,profileAddress,profileVIP)
+VALUES (1,'Kuei-Feng Tung','2019-11-13','1993-01-01','m','0999-221-112','Taipei',1),
+	   (2,'Leon McLeon','2020-01-14','1994-02-13','m','0983-221-131','Taichung',0),
+	   (3,'Zach Ong','2019-11-13','1993-01-01','m','0999-221-112','Kaohsiung',0)
+go 
+
+INSERT INTO WalletsTable(userID,walletAmount)
+VALUES (1,0.00),
+	   (2,1300.00), 
+	   (3,999.99)
+go
+
+INSERT INTO SettingsTable(userID,settingSecurityQ,settingSecurityA,settingDisplayName,settingAllowMetadata)
+VALUES (1,'What is my dog''s name?','nodog','omgitsk',0),
+	   (2,'Favorite color','Blue','leon01',1),
+	   (3,'my word','pineapples','MuchWowDoge',1)
+go
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '蔥',20,8,'蔥葉富含各種保護性的營養素，包括維他命C、維他命B、維生素E、β胡蘿蔔素、葉酸、鈣、鉀、必須胺基酸及纖維、葉綠素。維生素E含量比蕃茄、菠菜還高。',(SELECT GETDATE() AS CurrentDateTime),'蔥類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\2_蔥_big.png', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '洋蔥',18,40,'吃富含維他命B1的豬肉或肝臟等蛋白質食物時，搭配洋蔥一起攝取，洋蔥所含的含硫有機化合物將會促進維他命B1的吸收。',(SELECT GETDATE() AS CurrentDateTime),'蔥類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\3_洋蔥_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '大蒜',193,8,'大蒜中含有醣類、蛋白質、維生素B1、B2、C和鈣、磷、鐵、硒、鍺等礦物質外，還有30多種含硫化合物。',(SELECT GETDATE() AS CurrentDateTime),'蔥類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\4_大蒜_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '韭菜',43,10,'韭菜所含揮發油（硫化物多種）能增進食慾。含鉀量高、熱量低、水份高、纖維好。',(SELECT GETDATE() AS CurrentDateTime),'蔥類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\5_韭菜_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '山藥',100,10,'一份山藥（100克）膳食纖維含量約是白米飯的16倍、鉀約27倍、鈣6.3倍、鐵16倍，富含的維生素B1和B2分別是白米的8.3倍和3.3倍，維生素C也將近6倍。鎂、鋅含量分別是白米的的2.5倍、白米的3.3倍。',(SELECT GETDATE() AS CurrentDateTime),'根菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\6_山藥_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '紅蘿蔔',16,38,'含有碳水化合物、蛋白質、纖維素，以及鈣、磷、鐵、菸鹼酸和草酸等礦物質，很高的纖維素及硒元素。每日吃三兩紅蘿蔔最為適量。',(SELECT GETDATE() AS CurrentDateTime),'根菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\7_紅蘿蔔_big.png', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '牛蒡',23,20,'膳食纖維含量是胡蘿蔔的2.6倍，花椰菜的3倍，能促進腸道蠕動。',(SELECT GETDATE() AS CurrentDateTime),'根菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\8_牛蒡_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '白蘿蔔',45,15,'含有豐富的膳食纖維、維生素C及鉀等營養素，且熱量很低。',(SELECT GETDATE() AS CurrentDateTime),'根菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\9_白蘿蔔_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '薑',50,20,'富含薑辣素，能幫助血管擴張與血液循環。',(SELECT GETDATE() AS CurrentDateTime),'莖菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\10_薑_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '綠竹筍',95,20,'形似牛角，筍殼偏黃色，肉質細嫩鮮甜，常涼拌食用。',(SELECT GETDATE() AS CurrentDateTime),'莖菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\11_綠竹筍_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '馬鈴薯',29,12,'一顆煮熟的馬鈴薯有3.2克的抗性澱粉，能幫助降低脂肪儲存。',(SELECT GETDATE() AS CurrentDateTime),'莖菜類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\12_馬鈴薯_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '番石榴',30,40,'維生素C比柑桔多8倍，比西瓜、鳳梨、蕃茄、木瓜、香蕉多約30-80倍。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\34_番石榴_big.png', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '棗子',58,30,'每100公克棗子有28到70毫克的維生素C，是西瓜的5倍、水梨的9倍、蘋果的20倍。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\35_棗子_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '荔枝',89,4,'一份荔枝（含 25g 糖）比一份蘋果（同樣 25g 糖）所含有的維生素C高 14 倍。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\36_荔枝_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '草莓',266,8,'每100公克的草莓中含有62毫克的維生素C。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\37_草莓_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '檸檬',66,10,'富含維生素C、維生素B1、維生素B2、菸鹼酸、鈣、鎂、鉀等。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\38_檸檬_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '木瓜',30,8,'含有豐富的維生素C、茄紅素、鉀、β-胡蘿蔔素、玉米黃素等多樣營養素。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\39_木瓜_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '枇杷',241,8,'含有豐富的醣類、蘋果酸、維生素A、維生素P、類胡蘿蔔素、檸檬酸、鈣、磷、鉀等營養素。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\40_枇杷_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '鳳梨',23,30,'每100公克的鳳梨，約含有1.4公克的粗纖維，也就是俗稱的非水溶性纖維，在腸道中能幫助吸收水分、促進腸蠕動。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\41_鳳梨_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '蓮霧',73,40,'富含豐富的維生素C、維生素B2、維生素B6、鈣、鎂、硼、錳、鐵、銅、鋅、鉬等微量元素，屬於微鹼性水果。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\42_蓮霧_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '橘子',26,40,'橘子的β-隱黃素含量是柳丁的15倍之多，且當中富含維生素C及纖維。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\43_橘子_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '柳橙',27,40,'100克的柳丁膳食纖維含量，大約是每日建議攝取量的10%，這些纖維在果肉間的橘絡(白色部分)更是豐富，能夠幫助消化。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\44_柳橙_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '楊桃',24,10,'含有豐富的糖份、有機酸、礦物質以及維他命B1、B2、C等營養素。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\45_楊桃_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '香蕉',33,38,'香蕉中的水溶性膳食纖維、果膠和果寡糖成份有助促進腸胃蠕動及助消化。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\46_香蕉_big.jpg', Single_Blob)as EmployeePicture
+
+INSERT INTO ProductsTable(ProductName,ProductPrice,ProductStock,ProductDescription,ProductTimestamp,ProductCategory,ProductImg)
+SELECT '芒果',54,4,'芒果富含維生素A、維生素C、膳食纖維、葉酸等營養。',(SELECT GETDATE() AS CurrentDateTime),'瓜果類',BulkColumn from Openrowset( Bulk 'D:\蔬菜水果\特定尺寸蔬果圖片\47_芒果_big.png', Single_Blob)as EmployeePicture
+go
+
+INSERT INTO OrdersTable(UserID,Total,MailingAddress,MailingPhone,OrderTime)
+VALUES (2,92,'Taichung','0983-221-131','2020-01-2'),
+	   (2,571,'Tainan','0910-123-456','2020-01-15'),
+	   (3,1470,'Kaohsiung','0977-234-450','2020-01-29')
+go
+
+INSERT INTO OrderDetailsTable(OrderID,ProductID,ProductName,ProductCount,ProductPrice)
+VALUES (1,23,'楊桃',1,24),
+	   (1,24,'香蕉',2,66),
+	   (2,25,'芒果',1,54),
+	   (2,24,'楊桃',1,24),
+	   (2,25,'香蕉',1,33),
+	   (3,24,'楊桃',1,24),
+	   (3,25,'香蕉',3,99)  
+go

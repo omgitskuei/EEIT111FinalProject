@@ -1,5 +1,6 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,6 +59,21 @@ public class CheckSubstring {
 		}
 		return counter;
 	}
+	
+	public int countSpaces(String checkThisString) {
+		// Define counter
+		int counter = 0;
+		// For each letter of String checkThisString, ...
+		for (int index = 0; index < checkThisString.length(); index++) {
+			// ... Match the letter to a space
+			String letter = checkThisString.substring(index, index + 1);
+			// If a space is found, add 1 to counter
+			if (letter.equals(" ")) {
+				counter++;
+			}
+		}
+		return counter;
+	}
 
 	public int countNums(String checkThisString) {
 		// Define counter
@@ -75,5 +91,18 @@ public class CheckSubstring {
 			}
 		}
 		return counter;
+	}
+	
+	public ArrayList<String> delimitAtDot(String delimitThisString) {
+		// Makes substrings, split at "."
+		int dotIndex = delimitThisString.indexOf(".");
+		String beforeDot = delimitThisString.substring(0, dotIndex);
+		String afterDot = delimitThisString.substring(dotIndex+1, delimitThisString.length());
+		
+		ArrayList<String> delimitedString = new ArrayList<String>();
+		
+		delimitedString.add(beforeDot);
+		delimitedString.add(afterDot);
+		return delimitedString;
 	}
 }

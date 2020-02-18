@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import model.templates.Picture;
-import model.templates.PictureService;
+import model.Picture;
+import model.PictureService;
 
 @Controller
 public class UploadFileController {

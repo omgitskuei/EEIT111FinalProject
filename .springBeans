@@ -10,6 +10,7 @@
 		<config>WebContent/WEB-INF/mvc-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>WebContent/WEB-INF/beans.config.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

@@ -1,0 +1,169 @@
+/* Color Theme Swatches in Hex
+.韭菜（蔬菜）-1-hex { color: #467302; } 第三色
+.韭菜（蔬菜）-2-hex { color: #3E5902; } 輔色
+.韭菜（蔬菜）-3-hex { color: #A2BF39; } 主色
+.韭菜（蔬菜）-4-hex { color: #CFD989; }
+.韭菜（蔬菜）-5-hex { color: #F2F2F2; } 
+
+/* Color Theme Swatches in RGBA */
+/* .韭菜（蔬菜）-1-rgba { color: rgba(69, 114, 2, 1); }
+.韭菜（蔬菜）-2-rgba { color: rgba(61, 89, 1, 1); }
+.韭菜（蔬菜）-3-rgba { color: rgba(162, 191, 57, 1); }
+.韭菜（蔬菜）-4-rgba { color: rgba(207, 216, 136, 1); }
+.韭菜（蔬菜）-5-rgba { color: rgba(242, 242, 242, 1); } */
+
+/* Color Theme Swatches in HSLA */
+/* .韭菜（蔬菜）-1-hsla { color: hsla(84, 96, 22, 1); }
+.韭菜（蔬菜）-2-hsla { color: hsla(78, 96, 17, 1); }
+.韭菜（蔬菜）-3-hsla { color: hsla(73, 53, 48, 1); }
+.韭菜（蔬菜）-4-hsla { color: hsla(67, 51, 69, 1); }
+.韭菜（蔬菜）-5-hsla { color: hsla(0, 0, 95, 1); }  */
+
+* {
+    /* border: solid 1px black; */
+    font-family: 'Noto Sans TC', sans-serif';
+}
+body {
+    overflow-x: hidden;
+}
+
+.navbar .nav-link{
+    font-size: 14px;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+/* NAVBAR顏色 */
+nav{
+    background-color: #A2BF39;
+}
+
+nav.pagination {
+    background-color: #fff;
+}
+
+.box-shadow{
+    box-shadow: 0 3px 5px rgba(0,0,0, 0.15);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.box-shadow:hover{
+    transform: scale(1.1,1.1);
+}
+.
+/* NAVBAR第一個標題左邊 */
+.navbar .nav-item.first{
+    border-left: #3E5902 3px solid;
+}
+
+.carousel-item {
+    height: 450px;
+}
+
+.carousel-image-1 {
+
+    background: url('https://i.imgur.com/mCyWvml.jpg');
+    background-size: cover;
+}
+
+.carousel-image-2 {
+
+    background: url('https://i.imgur.com/J4DVVpn.jpg');
+
+    background-size: cover;
+}
+
+.carousel-image-3 {
+
+    background: url('https://i.imgur.com/lXJfUcw.jpg');
+
+    background-size: cover;
+}
+
+.card-height {
+    height: 300px;
+}
+
+.form-right {
+    display: inline-block;
+    position: relative;
+    left: 20%;
+}
+
+
+#home-heading {
+    position: relative;
+    min-height: 200px;
+    background: url('../img/glozzom/lights.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.dark-overlay-title {
+    width: 100%;
+    left: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#video-play {
+    position: relative;
+    min-height: 200px;
+
+    background: url('https://i.imgur.com/uBZDofo.jpg');
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 0 -300px;
+    text-align: center;
+    color: #fff;
+}
+
+#video-play a{
+    color: #fff;
+}
+
+#page-header {
+    height: 200px;
+
+    background: url('https://i.imgur.com/mCyWvml.jpg');
+
+    background-position: 0 -360px;
+    background-attachment: fixed;
+    color: #fff;
+    border-bottom: 1px solid #eee;
+    /* padding-top: 50px; */
+}
+
+#page-header .row{
+    padding-top: 50px;
+}
+
+.about-img {
+    margin-top: -50px;
+}
+
+#faq .card {
+    border: #444;
+}
+
+#faq a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#faq .card-body,
+#faq .card-header {
+    background: #333;
+}
+

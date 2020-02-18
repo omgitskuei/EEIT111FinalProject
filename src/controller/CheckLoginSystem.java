@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import model.templates.Account;
-import model.templates.AccountService;
+import model.Account;
+import model.AccountService;
 
 @Controller
 @SessionAttributes(names = {"user", "pwd", "errors"})
@@ -34,11 +34,11 @@ public class CheckLoginSystem {
 		m.addAttribute("errors", errors);
 		
 		if(username==null || username.length()==0) {
-			errors.put("name", "username is required");
+			errors.put("emailError", "Email is required");
 		}
 		
 		if(userpwd==null || userpwd.length()==0) {
-			errors.put("pwd", "user password is required");
+			errors.put("pwdError", "Password is required");
 		}
 		
 		if(errors!=null && !errors.isEmpty()) {
@@ -56,7 +56,7 @@ public class CheckLoginSystem {
 		
 		//m.addAttribute("checkUser" + accountStatus);
 		
-		errors.put("msg", "username or password is not correct");
+		errors.put("msgErrors", "username or password is not correct");
 		return "loginSystem";
 	}
 

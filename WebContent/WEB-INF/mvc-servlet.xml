@@ -25,6 +25,8 @@
 
 	<bean id="helloController" name="/hello.controller"
 		class="controller.HelloController"></bean>
+	
+	<bean id="homepageController" name="/homepage" class="controller.HomepageController"></bean>
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

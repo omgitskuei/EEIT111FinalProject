@@ -17,7 +17,8 @@ GO
  
 -- (3.b.)OneToOne
 CREATE table ProfilesTable(
-userID int primary key not null references UsersTable(userID),
+profileID int Identity(1,1) primary key not null,
+userID int  not null references UsersTable(userID),
 profileFullName NVarchar(50),
 profileJoinDate datetime Not NULL,	-- Will automatically set value to Now with Java.time.LocalDateTime.now();
 profileBirthdate datetime,
@@ -30,7 +31,8 @@ GO
  
 -- (3.c.)OneToOne
 CREATE table WalletsTable(
-userID int primary key not null references UsersTable(userID),
+walletID int Identity(1,1) primary key not null,
+userID int Not NULL,
 walletAmount decimal(18, 2) DEFAULT '0.0' Not NULL,	-- Defaults to $0.0 in Wallet
 )
 GO
@@ -42,7 +44,7 @@ userID int Foreign Key REFERENCES UsersTable(userID) Not NULL,
 settingSecurityQ NVarchar(50), 	-- Will use frontend dropdown menu to limit question choices
 settingSecurityA NVarchar(50), 	-- Lets users come up with any String answer, bar special characters
 settingDisplayName NVarchar(50), 	-- User can make display name for added security
-settingsAllowMetadata int DEFAULT '1' Not NULL	-- Defaults to '1' for 'YES, allow Usage data collection'
+settingAllowMetadata int DEFAULT '1' Not NULL	-- Defaults to '1' for 'YES, allow Usage data collection'
 )
 GO
  
@@ -52,7 +54,7 @@ ProductID int Identity(1,1) Primary Key Not NULL,
 ProductName NVarchar(50)  Not NULL,
 ProductPrice decimal(18, 2) Not NULL,
 ProductStock int Not NULL,
-ProductDescription NVarchar(50),
+ProductDescription NVarchar(MAX),
 ProductImg varbinary(MAX) Not NULL,
 ProductTimestamp Date Not NULL,
 ProductCategory NVarchar(50) Not NULL
@@ -63,7 +65,7 @@ GO
 CREATE table OrdersTable(
 OrderID int Identity(1, 1) Primary Key NOT NULL,
 UserID int Foreign KEY REFERENCES UsersTable(UserID),
-Total int NOT NULL,
+Total decimal(18,2) NOT NULL,
 MailingAddress nVarchar(max) NOT NULL,
 MailingPhone nVarchar(50) NOT NULL,
 OrderTime date Not NULL --用程式1
@@ -73,9 +75,11 @@ GO
 -- (3.g.)
 CREATE table OrderDetailsTable(
 OrderDetailID int Identity(1,1) Primary Key Not NULL,
-ProductID int Foreign Key REFERENCES ProductsTable(ProductID) Not NULL,
-ProductCount int Not NULL,
 OrderID int Foreign Key REFERENCES OrdersTable(OrderID) Not NULL,
+ProductID int Foreign Key REFERENCES ProductsTable(ProductID) Not NULL,
+ProductName NVarchar(50)  Not NULL,
+ProductCount int Not NULL,
+ProductPrice decimal(18, 2) Not NULL
 )
 GO
 
